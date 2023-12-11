@@ -22,13 +22,13 @@ const MonitorList = props => (
             style={stageSizeToTransform(props.stageSize)}
         >
             {props.monitors.valueSeq().filter(m => m.visible)
-                .map(monitorData => (
+                .map((monitorData, index) => (
                     <Monitor
                         draggable={props.draggable}
                         height={monitorData.height}
                         id={monitorData.id || `fallbackId_${index}`}
                         isDiscrete={monitorData.isDiscrete}
-                        key={monitorData.id}
+                        key={monitorData.id || index}
                         max={monitorData.sliderMax}
                         min={monitorData.sliderMin}
                         mode={monitorData.mode}
